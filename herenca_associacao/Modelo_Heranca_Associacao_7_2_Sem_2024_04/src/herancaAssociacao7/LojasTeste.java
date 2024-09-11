@@ -25,13 +25,13 @@ public class LojasTeste {
                                 new Produto(90, "Mouse", 36.90, 
                                         new Fornecedor("879.551.510-90", "Joana", 
                                                 new Endereco("Rua 80", 4, "58445151"))))),
-                new DeCalcados(45, "descricao", 
-                        new Atendente(new Atendente(987, "Arthur", 1200.0), "tenis", 
-                                new Cliente("548.956.515-08", "Kelvin",
-                                        new Endereco("Rua da Graça", 69, "8475184"),
-                                new Produto(789, "Chaveiro", 30.90, 
-                                        new Fornecedor("485.615/415-45", "Claudio", 
-                                                new Endereco("Chacara 520", 1, "84.755-15"))));
+                new DeCalcados(5, "descricao", 
+                        new Atendente(84946, "Gloria", 5000.1), "tipo de produto",
+                        new Cliente("845.151.848-04", "Pedro", 
+                                new Endereco("Rua Antonia da Silva", 109, "84.515-01"),
+                                new Produto(45698, "Baralho", 10.90, 
+                                        new Fornecedor("841.551/544-65", "Rian", 
+                                                new Endereco("Chacara 4569-B", 39, "84.891-88"))))));
     }
     
 }
