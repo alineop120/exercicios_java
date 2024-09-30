@@ -3,7 +3,6 @@ package classeAbstrataProduto;
 public class Geladeira extends Produto {
     private String marca;
     private int qtdPortas;
-    private Loja loja;
     
     public String getMarca() {
         return marca;
@@ -20,20 +19,11 @@ public class Geladeira extends Produto {
     public void setQtdPortas(int qtdPortas) {
         this.qtdPortas = qtdPortas;
     }
-
-    public Loja getLoja() {
-        return loja;
-    }
-
-    public void setLoja(Loja loja) {
-        this.loja = loja;
-    }
-    
-    public Geladeira(String codBarra, String descricao, Double preco, Fornecedor fornecedor, Fisica fisica, String marca, int qtdPortas, Loja loja) {
+        
+    public Geladeira(String codBarra, String descricao, Double preco, Fornecedor fornecedor, Fisica fisica, String marca, int qtdPortas) {
         super(codBarra, descricao, preco, fornecedor, fisica);
         this.marca = marca;
         this.qtdPortas = qtdPortas;
-        this.loja = loja;
     }
      
     @Override
@@ -59,7 +49,6 @@ public class Geladeira extends Produto {
                 "\nPreço: "+getPreco()+
                 "\nMarca: "+getMarca()+
                 "\nQuantidade das Portas: "+getQtdPortas()+
-                "\n\n-- Dados da Loja --"+getLoja()+
                 "\n\n-- Dados do Fornecedor --"+getFornecedor()+
                 "\n\n-- Dados da Pessoa Fisica --"+getFisica();
     }

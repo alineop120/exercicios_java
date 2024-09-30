@@ -2,7 +2,6 @@ package classeAbstrataProduto;
 
 public class MaquinaLavar extends Produto {
     private int qtdKg;
-    private Loja loja;
 
     public int getQtdKg() {
         return qtdKg;
@@ -11,19 +10,10 @@ public class MaquinaLavar extends Produto {
     public void setQtdKg(int qtdKg) {
         this.qtdKg = qtdKg;
     }
-
-    public Loja getLoja() {
-        return loja;
-    }
-
-    public void setLoja(Loja loja) {
-        this.loja = loja;
-    }
     
-    public MaquinaLavar(String codBarra, String descricao, Double preco, Fornecedor fornecedor, Fisica fisica, int qtdKg, Loja loja) {
+    public MaquinaLavar(String codBarra, String descricao, Double preco, Fornecedor fornecedor, Fisica fisica, int qtdKg) {
         super(codBarra, descricao, preco, fornecedor, fisica);
         this.qtdKg = qtdKg;
-        this.loja = loja;
     }
     
     @Override
@@ -48,7 +38,6 @@ public class MaquinaLavar extends Produto {
                 "\nDescrição: "+getDescricao()+
                 "\nPreço: "+getPreco()+
                 "\nQuantidade dos Kg: "+getQtdKg()+
-                "\n\n-- Dados da Loja --"+getLoja()+
                 "\n\n-- Dados do Fornecedor --"+getFornecedor()+
                 "\n\n-- Dados da Pessoa Fisica --"+getFisica();
     }
