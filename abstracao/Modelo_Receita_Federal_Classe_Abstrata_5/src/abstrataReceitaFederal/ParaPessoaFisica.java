@@ -26,15 +26,15 @@ public class ParaPessoaFisica extends DeclaracaoImposto {
         this.dependente = dependente;
     }
     
-    public Double calculaParcial() {
+    public static Double calculaParcial() {
         return(valorDeclarado+Bens.valor+Bens.calculaTarifacao());
     }
     
-    public Double calculaDesconto() {
+    public static Double calculaDesconto() {
         return(valorDeclarado-Pagamento.calculaTaxa()-Deducao.calculaDeducao());
     }
     
-    public Double calculaImpostoPessoaFisica() {
+    public static Double calculaImpostoPessoaFisica() {
         return(valorDeclarado+calculaParcial()-calculaDesconto());
     }
     

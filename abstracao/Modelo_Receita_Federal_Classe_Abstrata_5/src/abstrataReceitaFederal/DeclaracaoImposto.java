@@ -64,4 +64,5 @@ public abstract class DeclaracaoImposto {
         this.pagamento = pagamento;
         this.bens = bens;
     }
+
 }
