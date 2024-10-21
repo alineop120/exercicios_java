@@ -42,8 +42,7 @@ public class Retangulo extends FiguraGeometrica implements ObjetoGeometrico{
     
     @Override
     public String toString() {
-        return "-- Dados da Figura Geométrica: Retangulo --"+
-                "\nNome: "+getNome()+
+        return "\nNome: "+getNome()+
                 "\nLado Menor: "+getLadoMenor()+
                 "\nLado Maior: "+getLadoMaior()+
                 "\nArea: "+calculaArea()+

@@ -53,9 +53,9 @@ public class AplicacaoPratica {
     public String toString() {
         return "-- Dados da Aplicação Prática --"+
                 "\nDescricao: "+getDescricao()+
-                "\n\n"+getCirculo()+
-                "\n\n"+getRetangulo()+
-                "\n\n"+getQuadrado();
+                "\n\n-- Dados da Figura Geométrica: Circulo --"+getCirculo()+
+                "\n\n-- Dados da Figura Geométrica: Retangulo --"+getRetangulo()+
+                "\n\n-- Dados da Figura Geométrica: Quadrado --"+getQuadrado();
     }
     
 }

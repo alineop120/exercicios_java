@@ -31,8 +31,7 @@ public class Circulo extends FiguraGeometrica implements ObjetoGeometrico {
     
     @Override
     public String toString() {
-        return "-- Dados da Figura Geométrica: Circulo --"+
-                "\nNome: "+getNome()+
+        return "\nNome: "+getNome()+
                 "\nRaio: "+getRaio()+
                 "\nArea: "+calculaArea()+
                 "\nPerimetro: "+calculaPerimetro();

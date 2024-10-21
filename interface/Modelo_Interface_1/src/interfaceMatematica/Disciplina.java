@@ -19,5 +19,6 @@ public abstract class Disciplina {
         this.nome = nome;
     } 
     
+    @Override
     public abstract String toString();
 }

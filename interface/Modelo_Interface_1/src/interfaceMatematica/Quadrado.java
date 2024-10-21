@@ -37,8 +37,7 @@ public class Quadrado extends FiguraGeometrica implements ObjetoGeometrico {
     
     @Override
     public String toString() {
-        return "-- Dados da Figura Geométrica: Quadrado --"+
-                "\nNome: "+getNome()+
+        return "\nNome: "+getNome()+
                 "\nLado: "+getLado()+
                 "\nArea: "+calculaArea()+
                 "\nPerimetro: "+calculaPerimetro();
