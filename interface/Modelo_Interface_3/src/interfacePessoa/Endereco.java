@@ -31,8 +31,8 @@ public class Endereco implements Logradouro {
     
     @Override
     public String toString() {
-        return "Rua: "+getRua()+
-                "Numero: "+getNumero();
+        return "\nRua: "+getRua()+
+                "\nNumero: "+getNumero();
     }
     
 }

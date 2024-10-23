@@ -31,7 +31,7 @@ public class Equipamento {
     
     @Override
     public String toString() {
-        return "Marca: "+getMarca()+
-                "Configuracao: "+getConfiguracao();
+        return "\nMarca: "+getMarca()+
+                "\nConfiguracao: "+getConfiguracao();
     }
 }

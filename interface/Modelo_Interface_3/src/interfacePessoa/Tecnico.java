@@ -50,9 +50,12 @@ public class Tecnico extends Pessoa implements Salario, HoraExtra{
         return "-- Dados da Pessoa: Tecnico --"+
                 "\nMatricula: "+getMatr()+
                 "\nNome: "+getNome()+
+                "\nSalario: "+SAL+
                 "\nGratificação: "+getGratificacao()+
-                "\nValor do Salário: "+calculaSalario()+
-                "\n\n-- Dados do Endereco --"+getEndereco()+
-                "\n\n-- Dados do Equipamento --"+getEquipamento();
+                "\nQuantidade de horas extras: "+QTDHORAEXTRA+
+                "\nValor das horas extras: "+VALORHORAEXTRA+
+                "\nValor Total do Salário: "+calculaSalario()+
+                "\n\n-- Dados do Endereco do Tecnico --"+getEndereco()+
+                "\n\n-- Dados do Equipamento do Tecnico --"+getEquipamento();
     }
 }

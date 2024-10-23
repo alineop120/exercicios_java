@@ -4,8 +4,8 @@ package interfacePessoa;
  *
  * @author 364975
  */
-public class Internet extends Servico {
-    private Double valorHora;
+public class Internet extends Servico implements HoraExtra {
+    protected static Double valorHora;
 
     public Double getValorHora() {
         return valorHora;
@@ -18,7 +18,18 @@ public class Internet extends Servico {
     public Internet(String nome, Double valorHora) {
         super(nome);
         this.valorHora = valorHora;
-        
-        public
+    }
+    
+    @Override
+    public Double totalPagar(){
+        return (valorHora * QTDHORAEXTRA);
+    } 
+    
+    @Override
+    public String toString(){
+        return "\nNome: "+getNome()+
+                "\nValor por Hora: "+getValorHora()+
+                "\nQuantidade de horas extras: "+QTDHORAEXTRA+
+                "\nTotal a Pagar: "+totalPagar();
     }
 }

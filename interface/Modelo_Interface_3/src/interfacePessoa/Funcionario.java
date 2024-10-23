@@ -38,8 +38,12 @@ public class Funcionario extends Pessoa implements Comissao {
     @Override
     public String toString() {
         return "-- Dados da Pessoa: Funcionario --"+
+                "\nCPF: "+getCpf()+
+                "\nNome: "+getNome()+
                 "\nMatricula: "+getMatr()+
+                "\nSalario: "+SAL+
                 "\nValor da Comissão: "+getValorComissao()+
-                "\nSalario da comissão: "+calculaSalComissao();
+                "\nSalario da comissão: "+calculaSalComissao()+
+                "\n\n-- Dados do Endereço da Pessoa: Funcionario --"+getEndereco();
     }
 }
