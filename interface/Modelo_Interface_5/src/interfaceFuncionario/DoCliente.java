@@ -6,7 +6,7 @@ package interfaceFuncionario;
  */
 public class DoCliente extends NotaFiscal {
     private String descricao;
-    private Double preco;
+    protected static Double preco;
 
     public String getDescricao() {
         return descricao;

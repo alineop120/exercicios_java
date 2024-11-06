@@ -7,7 +7,7 @@ package interfaceFuncionario;
 public abstract class Funcionario {
     private String matr;
     private String nome;
-    private Double salario;
+    protected static Double salario;
     private Endereco endereco;
     
     public String getMatr() {

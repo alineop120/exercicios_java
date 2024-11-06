@@ -8,6 +8,7 @@ public class Medicamento implements PrecoVenda, Icms {
     private String codigo;
     private String nome;
     private Double precoFornecedor;
+    private Fornecedor fornecedor;
 
     public String getCodigo() {
         return codigo;
@@ -33,17 +34,38 @@ public class Medicamento implements PrecoVenda, Icms {
         this.precoFornecedor = precoFornecedor;
     }
     
-    public Medicamento(String codigo, String nome, Double precoFornecedor) {
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+    
+    public Medicamento(String codigo, String nome, Double precoFornecedor, Fornecedor fornecedor) {
         this.codigo = codigo;
         this.nome = nome;
         this.precoFornecedor = precoFornecedor;
+        this.fornecedor = fornecedor;
     }
     
     public Double calculaIcms(){
         return (getPrecoFornecedor() * ALIQUOTA);
     }
 
-    public String toString() {
-        
+    @Override
+    public Double precoFinal() {
+        return (getPrecoFornecedor() + calculaIcms());
     }
+    
+    @Override
+    public String toString() {
+        return "\nCodigo: "+getCodigo()+
+                "\nNome: "+getNome()+
+                "\nPreço do Fornecedor: "+getPrecoFornecedor()+
+                "\nAliquota: "+ALIQUOTA+
+                "\nValor do calculo da Icms: "+calculaIcms()+
+                "\nPreço Final: "+precoFinal()+
+                "\n\n-- Dados do Fornecedor do Medicamento --"+getFornecedor();
+    }  
 }
