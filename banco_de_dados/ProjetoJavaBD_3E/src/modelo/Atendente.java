@@ -1,8 +1,9 @@
 package modelo;
+
 public class Atendente {
 
-private int matr;
-private String nome;
+    private int matr;
+    private String nome;
 
     public int getMatr() {
         return matr;
@@ -20,15 +21,15 @@ private String nome;
         this.nome = nome;
     }
 
-public Atendente(){}
+    public Atendente(){}
 
-public Atendente(int matr,String nome){
-    this.matr=matr;
-    this.nome=nome;
-}
+    public Atendente(int matr,String nome){
+        this.matr=matr;
+        this.nome=nome;
+    }
 
-public String toString(){
-    return "\n Matrícula:" + getMatr() +
-            "\n Nome:" + getNome();
-}
+    public String toString(){
+        return "\n Matrícula:" + getMatr() +
+                "\n Nome:" + getNome();
+    }
 }
