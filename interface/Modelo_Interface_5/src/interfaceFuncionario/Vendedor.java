@@ -1,10 +1,6 @@
 package interfaceFuncionario;
 
-/**
- *
- * @author 364975
- */
-public class Vendedor extends Funcionario implements PercentInss, Pagamento{
+public class Vendedor extends Funcionario implements PercentInss, Pagamento {
     private int idade;
     private Medicamento medicamento;
     private Cliente cliente;
@@ -40,12 +36,15 @@ public class Vendedor extends Funcionario implements PercentInss, Pagamento{
         this.cliente = cliente;
     }
     
+    @Override
+    public Double inss() {
+        return (salario  *  PERCVENDEDOR);
+    }
+    
     public Double comissao() {
         return (DoCliente.preco * PERCVENDEDOR);
     }
-    
-    
-    
+        
     @Override
     public Double salarioFinal() {
         return (salario + comissao() - (salario * PERCVENDEDOR));
@@ -53,6 +52,18 @@ public class Vendedor extends Funcionario implements PercentInss, Pagamento{
     
     @Override
     public String toString() {
-        return "-- Dados do Funcionario: Vendedor --";
+        return "-- Dados do Funcionario: Vendedor --"+
+               "\nMatricula: "+getMatr()+
+               "\nNome: "+getNome()+
+                "\nIdade: "+getIdade()+
+                "\nSalario: "+getSalario()+
+                "\nPercentual do Vendedor: "+PERCVENDEDOR+
+                "\nINSS: "+inss()+
+                "\nPreço do Cliente: "+DoCliente.preco+
+                "\nComissão: "+comissao()+
+                "\nSalario Final: "+salarioFinal()+
+                "\n\n-- Dados do Endereço do Vendedor --"+getEndereco()+
+                "\n\n-- Dados do Medicamneto do Vendedor --"+getMedicamento()+
+                "\n\n-- Dados do Cliente --"+getCliente();
     }
 }

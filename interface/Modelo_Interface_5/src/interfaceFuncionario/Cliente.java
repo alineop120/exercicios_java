@@ -1,9 +1,5 @@
 package interfaceFuncionario;
 
-/**
- *
- * @author 364975
- */
 public class Cliente {
     private String cpf;
     private String nome;

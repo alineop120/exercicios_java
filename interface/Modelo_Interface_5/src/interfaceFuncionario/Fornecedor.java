@@ -1,9 +1,5 @@
 package interfaceFuncionario;
 
-/**
- *
- * @author 364975
- */
 public class Fornecedor {
     private String descricao;
     private String nome;
@@ -53,7 +49,7 @@ public class Fornecedor {
     public String toString() {
         return "\nDescricao: "+getDescricao()+
                 "\nNome: "+getNome()+
-                "\n\n-- Dados do Forncedor --"+getDoFornecedor()+
-                "\n\n-- Dados do Endereco --"+getEndereco();
+                "\n\n-- Dados da Nota Fiscal do Fornecedor --"+getDoFornecedor()+
+                "\n\n-- Dados do Endereco do Fornecedor --"+getEndereco();
     }
 }

@@ -1,9 +1,5 @@
 package interfaceFuncionario;
 
-/**
- *
- * @author 364975
- */
 public class DoFornecedor extends NotaFiscal {
     private String descricao;
     private String data;
@@ -42,8 +38,7 @@ public class DoFornecedor extends NotaFiscal {
     
     @Override
     public String toString() {
-        return "-- Dados da Nota Fiscal do Fornecedor --"+
-                "\nNumero: "+getNumero()+
+        return "\nNumero: "+getNumero()+
                 "\nDescrição: "+getDescricao()+
                 "\nData: "+getData()+
                 "\nPreço: "+getPreco();

@@ -1,9 +1,5 @@
 package interfaceFuncionario;
 
-/**
- *
- * @author 364975
- */
 public class Medicamento implements PrecoVenda, Icms {
     private String codigo;
     private String nome;
@@ -66,6 +62,6 @@ public class Medicamento implements PrecoVenda, Icms {
                 "\nAliquota: "+ALIQUOTA+
                 "\nValor do calculo da Icms: "+calculaIcms()+
                 "\nPreço Final: "+precoFinal()+
-                "\n\n-- Dados do Fornecedor do Medicamento --"+getFornecedor();
+                "\n\n-- Dados do Medicamento do Fornecedor --"+getFornecedor();
     }  
 }

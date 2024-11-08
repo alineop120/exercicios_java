@@ -21,13 +21,13 @@ public class DoCliente extends NotaFiscal {
     }
 
     public void setPreco(Double preco) {
-        this.preco = preco;
+        DoCliente.preco = preco;
     }
     
     public DoCliente(int numero, String descricao, Double preco) {
         super(numero);
         this.descricao = descricao;
-        this.preco = preco;
+        DoCliente.preco = preco;
     }
     
     @Override

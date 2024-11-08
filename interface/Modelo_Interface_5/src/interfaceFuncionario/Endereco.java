@@ -1,9 +1,5 @@
 package interfaceFuncionario;
 
-/**
- *
- * @author 364975
- */
 public class Endereco {
     private String rua;
     private int numero;
@@ -24,5 +20,14 @@ public class Endereco {
         this.numero = numero;
     }
     
+    public Endereco(String rua, int numero) {
+        this.rua = rua;
+        this.numero = numero;
+    }
     
+    @Override
+    public String toString() {
+        return "\nRua: "+getRua()+
+                "\nNumero:"+getNumero();
+    }
 }
