@@ -28,8 +28,9 @@ public class Atendente {
         this.nome=nome;
     }
 
+    @Override
     public String toString(){
-        return "\n Matrícula:" + getMatr() +
-                "\n Nome:" + getNome();
+        return "\nMatrícula: " + getMatr() +
+                "\nNome: " + getNome();
     }
 }

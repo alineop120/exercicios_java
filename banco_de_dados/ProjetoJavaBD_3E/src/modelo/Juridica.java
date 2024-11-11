@@ -28,11 +28,12 @@ public class Juridica extends Pessoa{
         this.atendente=atendente;
     }
     
+    @Override
     public String toString(){
-        return "\n Dados da Pessoa Jurídica:" +
-                "\n CNPJ:" + getCnpj() +
-                "\n Nome:" + getNome() +
-                "\n Idade:" + getIdade() +
-                "\n Dados do Atendente:" + getAtendente();
+        return " -- Dados da Pessoa Jurídica --" +
+                "\nCNPJ: " + getCnpj() +
+                "\nNome: " + getNome() +
+                "\nIdade: " + getIdade() +
+                "\n\n -- Dados do Atendente --" + getAtendente();
     }
 }

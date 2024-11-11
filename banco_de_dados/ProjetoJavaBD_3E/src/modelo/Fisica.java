@@ -28,12 +28,13 @@ public class Fisica extends Pessoa{
         this.atendente=atendente;
     }
     
+    @Override
     public String toString(){
-        return "\n Dados da Pessoa Física:" +
-                "\n CPF:" + getCpf() +
-                "\n Nome:" + getNome() +
-                "\n Idade:" + getIdade() +
-                "\n Dados do Atendente:" + getAtendente();
+        return "\n\n -- Dados da Pessoa Física --" +
+                "\nCPF: " + getCpf() +
+                "\nNome: " + getNome() +
+                "\nIdade: " + getIdade() +
+                "\n\n -- Dados do Atendente --" + getAtendente();
     }
 
     
