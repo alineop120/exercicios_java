@@ -129,5 +129,161 @@ public class AtendenteDAO {
         }
         return ret;
     
-    }   
+    } 
+    
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // QUESTÃO 01
+    /*
+       Faça uma consulta Seleção com a tabela Atendente que liste todos os 
+       atendentes que possuem matrícula >= 2. 
+    */
+    public static List<Atendente> leMatr() throws Exception 
+    {
+        List<Atendente> listAtendentes = new ArrayList<Atendente>();
+        try 
+        {
+            String sql = "SELECT * FROM Atendente WHERE matr >= 2";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                Atendente a = new Atendente();
+                a.setMatr(rs.getInt("matr"));
+                a.setNome(rs.getString("nome"));
+                listAtendentes.add(a);
+            }
+            st.close();
+
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return listAtendentes;
+    }
+    
+    // QUESTÃO 02
+    /*
+       Faça uma consulta Seleção com a tabela Atendente que liste todos os 
+       atendentes cujo nome começa com a letra P.
+    
+       Obs.: É necessário utilizar o operador like!
+    */
+    public static List<Atendente> leNomeP() throws Exception 
+    {
+        List<Atendente> listAtendentes = new ArrayList<Atendente>();
+        try 
+        {
+            String sql = "SELECT * FROM Atendente WHERE nome LIKE 'P%'";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                Atendente a = new Atendente();
+                a.setMatr(rs.getInt("matr"));
+                a.setNome(rs.getString("nome"));
+                listAtendentes.add(a);
+            }
+            st.close();
+
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return listAtendentes;
+    }
+    
+    // QUESTÃO 03
+    /*
+       Faça uma consulta Atualização com a tabela Atendente que atualize a 
+       matrícula.
+    */
+    
+    
+    
+    // QUESTÃO 04
+    /*
+       Faça uma consulta Atualização com a tabela Atendente que atualize a 
+       matrícula e nome.
+    */
+    
+    
+    
+    // QUESTÃO 05
+    /*
+       Faça uma consulta Exclusão com a tabela Atendente que exclua todos os 
+       atendentes cuja matrícula esteja entre 2 e 8.
+    
+       Obs.: É necessário utilizar o operador between!
+    */
+    
+    
+    
+    // QUESTÃO 06
+    /*
+       Faça uma consulta Exclusão com a tabela Atendente que exclua todos os 
+       atendentes cujo nome começa com a letra M.
+    
+       Obs.: É necessário utilizar o operador like!
+    */
+    
+    
+    
+    // QUESTÃO 07
+    /*
+        Faça uma consulta Seleção com a tabela Física que liste todas as 
+        pessoas física que possuem idade entre 15 e 30 anos.
+    
+        Obs.: É necessário utilizar o operador between!
+    */
+    
+    
+    
+    // QUESTÃO 08
+    /*
+        Faça uma consulta Seleção com as tabelas Atendente e Física que mostre 
+        matrícula e nome dos atendentes, e seus respectivos clientes pessoa 
+        física com cpf e nome, cujo nome do atendente comece com a letra J e a 
+        idade da pessoa física esteja entre 30 e 40.
+    */
+    
+    
+    
+    // QUESTÃO 09
+    /*
+        Faça uma consulta Seleção com a tabela Juridica que liste todas as 
+        pessoas jurídicas que possuem cnpj igual à “101010” e “303030”.
+    
+        Obs.: É necessário utilizar o operador in(... , ...).
+    */
+    
+    
+    
+    // QUESTÃO 10
+    /*
+        Faça uma consulta Seleção com a tabela Juridica que liste todas as 
+        pessoas jurídicas que possuem cnpj igual à “404040” ou a idade seja 
+        superior a 5.
+    
+        Obs.: É necessário utilizar os operadores: = e >!
+    */
+    
+    
+    
+    // QUESTÃO 11
+    /*
+        Faça uma consulta Seleção com as tabelas Atendente e Jurídica que 
+        mostre matrícula e nome dos atendentes, e seus respectivos clientes 
+        pessoa jurídica com cnpj, nome e idade, cuja matrícula do atendente 
+        seja igual a 1 ou 3, e a idade da pessoa jurídica seja igual a 10.
+    
+        Obs.: É necessário utilizar os operadores inner join, in(... , ...) 
+        e > na primeira condição!
+    */
+    
+    
+    
 }
