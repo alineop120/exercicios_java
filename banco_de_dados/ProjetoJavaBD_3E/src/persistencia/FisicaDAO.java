@@ -55,10 +55,10 @@ public class FisicaDAO {
 
             if (rs.next()) 
             {
-            fisica.setCpf(rs.getString("cpf"));
-            fisica.setNome(rs.getString("nome"));
-            fisica.setIdade(rs.getInt("idade"));
-            fisica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
+                fisica.setCpf(rs.getString("cpf"));
+                fisica.setNome(rs.getString("nome"));
+                fisica.setIdade(rs.getInt("idade"));
+                fisica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
 
             }
             st.close();
@@ -141,5 +141,43 @@ public class FisicaDAO {
         }
         return ret;
 
+    }
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // QUESTÃO 07
+    /*
+        Faça uma consulta Seleção com a tabela Física que liste todas as 
+        pessoas física que possuem idade entre 15 e 30 anos.
+    
+        Obs.: É necessário utilizar o operador between!
+    */
+    public static List<Fisica> leIdade() throws Exception 
+    {
+        List<Fisica> listFisicas = new ArrayList<>();
+        try 
+        {
+            String sql = "SELECT * FROM Fisica WHERE idade BETWEEN ? AND ?";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            st.setInt(1, 15);
+            st.setInt(2, 30);
+            rs = st.executeQuery();
+            
+            while (rs.next())
+            {
+                Fisica fisica = new Fisica();
+                fisica.setCpf(rs.getString("cpf"));
+                fisica.setNome(rs.getString("nome"));
+                fisica.setIdade(rs.getInt("idade"));
+                fisica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
+                listFisicas.add(fisica);
+            }
+            st.close();
+
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return listFisicas;
     }
 }

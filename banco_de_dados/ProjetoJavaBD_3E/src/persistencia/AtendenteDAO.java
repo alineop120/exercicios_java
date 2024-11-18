@@ -201,16 +201,55 @@ public class AtendenteDAO {
        Faça uma consulta Atualização com a tabela Atendente que atualize a 
        matrícula.
     */
-    
-    
-    
+    public static List<Atendente> atualizaMatr(int matrAntiga, int novaMatr) throws Exception 
+    {
+        List<Atendente> listAtendentes = new ArrayList<>();
+        try 
+        {
+            String sqlUpdate = "UPDATE Atendente SET matr = ? WHERE matr = ?";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sqlUpdate);
+            st.setInt(1, novaMatr);
+            st.setInt(2, matrAntiga);
+            st.executeUpdate();
+
+            st.close();
+
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return listAtendentes;
+    }
+
     // QUESTÃO 04
     /*
        Faça uma consulta Atualização com a tabela Atendente que atualize a 
        matrícula e nome.
     */
-    
-    
+    public static List<Atendente> atualizaMatr_e_Nome(int matrAntiga, int novaMatr, String novoNome) throws Exception 
+    {
+        List<Atendente> listAtendentes = new ArrayList<>();
+        try 
+        {
+            String sql = "UPDATE Atendente SET matr = ?, nome = ? WHERE matr = ?";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            st.setInt(1, novaMatr);
+            st.setString(2, novoNome);
+            st.setInt(3, matrAntiga);
+            st.executeUpdate();
+
+            st.close();
+
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return listAtendentes;
+    } 
     
     // QUESTÃO 05
     /*
@@ -219,8 +258,27 @@ public class AtendenteDAO {
     
        Obs.: É necessário utilizar o operador between!
     */
-    
-    
+    public static List<Atendente> excluiMatri() throws Exception 
+    {
+        List<Atendente> listAtendentes = new ArrayList<>();
+        try 
+        {
+            String sql = "DELETE FROM Atendente WHERE matr BETWEEN ? AND ?";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            st.setInt(1, 2);
+            st.setInt(2, 8);
+            st.executeUpdate();
+
+            st.close();
+
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return listAtendentes;
+    }
     
     // QUESTÃO 06
     /*
@@ -229,18 +287,25 @@ public class AtendenteDAO {
     
        Obs.: É necessário utilizar o operador like!
     */
-    
-    
-    
-    // QUESTÃO 07
-    /*
-        Faça uma consulta Seleção com a tabela Física que liste todas as 
-        pessoas física que possuem idade entre 15 e 30 anos.
-    
-        Obs.: É necessário utilizar o operador between!
-    */
-    
-    
+    public static List<Atendente> excluiNome() throws Exception 
+    {
+        List<Atendente> listAtendentes = new ArrayList<>();
+        try 
+        {
+            String sql = "DELETE FROM Atendente WHERE nome LIKE 'M%'";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            st.executeUpdate();
+
+            st.close();
+
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println(e.getMessage());
+        }
+        return listAtendentes;
+    }    
     
     // QUESTÃO 08
     /*

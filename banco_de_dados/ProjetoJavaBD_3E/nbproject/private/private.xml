@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/364975/Documents/ltp2/exercicios_java/banco_de_dados/ProjetoJavaBD_3E/src/persistencia/FisicaDAO.java</file>
-            <file>file:/C:/Users/364975/Documents/ltp2/exercicios_java/banco_de_dados/ProjetoJavaBD_3E/src/testes/fisica/TestaFisicaLeTodos.java</file>
-            <file>file:/C:/Users/364975/Documents/ltp2/exercicios_java/banco_de_dados/ProjetoJavaBD_3E/src/testes/fisica/TestaFisicaExclui.java</file>
+            <file>file:/C:/Users/364975/Documents/ltp2/exercicios_java/banco_de_dados/ProjetoJavaBD_3E/src/testes/atendente/TestaAtendenteLeMatricula.java</file>
+            <file>file:/C:/Users/364975/Documents/ltp2/exercicios_java/banco_de_dados/ProjetoJavaBD_3E/src/persistencia/AtendenteDAO.java</file>
+            <file>file:/C:/Users/364975/Documents/ltp2/exercicios_java/banco_de_dados/ProjetoJavaBD_3E/src/testes/atendente/TestaAtendenteLeTodos.java</file>
+            <file>file:/C:/Users/364975/Documents/ltp2/exercicios_java/banco_de_dados/ProjetoJavaBD_3E/src/testes/atendente/TestaAtendenteLeNomeP.java</file>
         </group>
     </open-files>
 </project-private>
