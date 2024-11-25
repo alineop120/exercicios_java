@@ -30,8 +30,7 @@ public class Fisica extends Pessoa{
     
     @Override
     public String toString(){
-        return "\n\n -- Dados da Pessoa Física --" +
-                "\nCPF: " + getCpf() +
+        return "\nCPF: " + getCpf() +
                 "\nNome: " + getNome() +
                 "\nIdade: " + getIdade() +
                 "\n\n -- Dados do Atendente --" + getAtendente();
