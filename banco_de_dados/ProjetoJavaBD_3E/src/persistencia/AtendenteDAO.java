@@ -15,7 +15,7 @@ public class AtendenteDAO {
 
     public static List<Atendente> leTodos() throws Exception
     {
-        List<Atendente> listAtendentes = new ArrayList<Atendente>();
+        List<Atendente> listAtendentes = new ArrayList<>();
         try 
         {
             String sql = "SELECT * FROM ATENDENTE";
