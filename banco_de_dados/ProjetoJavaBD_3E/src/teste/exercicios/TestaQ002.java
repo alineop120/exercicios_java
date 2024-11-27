@@ -11,6 +11,6 @@ public class TestaQ002 {
     */
     
     public static void main(String[] args) throws Exception{
-        System.out.println(ExercicioDAO.leNomeP());
+        System.out.println(ExercicioDAO.leTodosLike("P"));
     }
 }

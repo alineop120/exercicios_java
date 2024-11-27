@@ -12,7 +12,8 @@ public class TestaQ010 {
     */
     
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.leIdadeJuridica());
+        //                              leTodosPorCnpjOuIdade(String cnpj, int idade)
+        System.out.println(ExercicioDAO.leTodosPorCnpjOuIdade("404040", 5));
     }
     
 }

@@ -11,7 +11,8 @@ public class TestaQ008 {
     */
 
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.consultaAtendenteFisica());
+        //                              leTodosInnerJoinLikeBetween(String letra, int idade1, int idade2)
+        System.out.println(ExercicioDAO.leTodosInnerJoinLikeBetween("J", 30, 40));
     }
     
 }

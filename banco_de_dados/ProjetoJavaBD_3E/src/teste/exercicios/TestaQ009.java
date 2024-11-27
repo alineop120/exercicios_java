@@ -11,7 +11,8 @@ public class TestaQ009 {
     */
     
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.leCnpj());
+        // leTodosPorCnpj(String cnpj1, String cnpj2)
+        System.out.println(ExercicioDAO.leTodosPorCnpj("101010", "303030"));
     }
     
 }

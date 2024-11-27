@@ -11,7 +11,7 @@ public class TestaQ007 {
     */
 
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.leIdade());
+        System.out.println(ExercicioDAO.leTodosIdadeBetween(15, 30));
     }
     
 }

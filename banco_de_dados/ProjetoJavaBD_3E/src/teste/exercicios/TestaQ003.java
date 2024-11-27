@@ -9,7 +9,7 @@ public class TestaQ003 {
     */
 
     public static void main(String[] args) throws Exception {
-        // atualizaMatr(int matrAntiga, int novaMatr)
-        System.out.println(ExercicioDAO.atualizaMatr(4,2));
+        // alteraMatr(int novaMatr,int matr)
+        System.out.println(ExercicioDAO.alteraMatr(4, 2));
     }
 }

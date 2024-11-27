@@ -9,7 +9,7 @@ public class TestaQ001 {
     */
 
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.leMatr());
+        System.out.println(ExercicioDAO.leTodosMatr(2));
     }
     
 }

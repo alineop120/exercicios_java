@@ -8,8 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Atendente;
 import modelo.Fisica;
-import exercicios.AtendenteComFisica;
-import exercicios.AtendenteComJuridica;
 import modelo.Juridica;
 
 public class ExercicioDAO {
@@ -18,14 +16,14 @@ public class ExercicioDAO {
     protected static ResultSet rs;
 
     // QUESTÃO 01
-    public static List<Atendente> leMatr() throws Exception 
-    {
+    public static List<Atendente> leTodosMatr(int matr) throws Exception {
         List<Atendente> listAtendentes = new ArrayList<>();
-        try 
-        {
-            String sql = "SELECT * FROM Atendente WHERE matr >= 2";
+
+        try {
+            String sql = "SELECT * FROM ATENDENTE where matr >= ?";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
+            st.setInt(1, matr);
             rs = st.executeQuery();
 
             while (rs.next()) {
@@ -36,23 +34,20 @@ public class ExercicioDAO {
             }
             st.close();
 
-        } 
-        catch (SQLException e) 
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return listAtendentes;
     }
     
     // QUESTÃO 02
-    public static List<Atendente> leNomeP() throws Exception 
-    {
+    public static List<Atendente> leTodosLike(String letra) throws Exception{
         List<Atendente> listAtendentes = new ArrayList<>();
-        try 
-        {
-            String sql = "SELECT * FROM Atendente WHERE nome LIKE 'P%'";
+        try {
+            String sql = "SELECT * FROM ATENDENTE where nome like ?";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
+            st.setString(1, "%" + letra + "%");
             rs = st.executeQuery();
 
             while (rs.next()) {
@@ -62,205 +57,142 @@ public class ExercicioDAO {
                 listAtendentes.add(a);
             }
             st.close();
-
-        } 
-        catch (SQLException e) 
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return listAtendentes;
     }
     
     // QUESTÃO 03
-    public static List<Atendente> atualizaMatr(int matrAntiga, int novaMatr) throws Exception 
-    {
-        List<Atendente> listAtendentes = new ArrayList<>();
-        try 
-        {
-            String sqlUpdate = "UPDATE Atendente SET matr = ? WHERE matr = ?";
+    public static int alteraMatr(int novaMatr,int matr) throws Exception {
+        int ret = 0;
+        try {
+            String sql = "UPDATE atendente SET matr = ? WHERE matr = ?";
             connection = GerenteDeConexao.getConnection();
-            st = connection.prepareStatement(sqlUpdate);
+            st = connection.prepareStatement(sql);
             st.setInt(1, novaMatr);
-            st.setInt(2, matrAntiga);
-            st.executeUpdate();
-
+            st.setInt(2, matr);
+            ret = st.executeUpdate();
             st.close();
-
-        } 
-        catch (SQLException e) 
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return listAtendentes;
+        return ret;
     }
-
     // QUESTÃO 04
-    public static List<Atendente> atualizaMatrNome(int matrAntiga, int novaMatr, String novoNome) throws Exception 
-    {
-        List<Atendente> listAtendentes = new ArrayList<>();
-        try 
-        {
-            String sql = "UPDATE Atendente SET matr = ?, nome = ? WHERE matr = ?";
+    public static int alteraMatrNome(int novaMatr,String novoNome, int matr) throws Exception {
+        int ret = 0;
+        try {
+            String sql = "UPDATE atendente SET matr = ?, nome = ? WHERE matr = ?";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
             st.setInt(1, novaMatr);
             st.setString(2, novoNome);
-            st.setInt(3, matrAntiga);
-            st.executeUpdate();
-
+            st.setInt(3,matr);
+            ret = st.executeUpdate();
             st.close();
-
-        } 
-        catch (SQLException e) 
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return listAtendentes;
-    } 
-    
-    // QUESTÃO 05
-    public static List<Atendente> excluiMatri() throws Exception 
-    {
-        List<Atendente> listAtendentes = new ArrayList<>();
-        try 
-        {
-            String sql = "DELETE FROM Atendente WHERE matr BETWEEN ? AND ?";
-            connection = GerenteDeConexao.getConnection();
-            st = connection.prepareStatement(sql);
-            st.setInt(1, 2);
-            st.setInt(2, 8);
-            st.executeUpdate();
-
-            st.close();
-
-        } 
-        catch (SQLException e) 
-        {
-            System.out.println(e.getMessage());
-        }
-        return listAtendentes;
+        return ret;
     }
     
-    // QUESTÃO 06
-    public static List<Atendente> excluiNome() throws Exception 
-    {
-        List<Atendente> listAtendentes = new ArrayList<>();
-        try 
-        {
-            String sql = "DELETE FROM Atendente WHERE nome LIKE 'M%'";
+    // QUESTÃO 05
+    public static int excluiMatr(int matr1, int matr2) throws Exception {
+        int ret = 0;
+        try {
+            String sql = "DELETE FROM atendente WHERE matr between ? and ?";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
-            st.executeUpdate();
-
+            st.setInt(1, matr1);
+            st.setInt(2, matr2);
+            ret = st.executeUpdate();
             st.close();
-
-        } 
-        catch (SQLException e) 
-        {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return listAtendentes;
+        return ret;
+    }  
+    
+    // QUESTÃO 06
+    public static int excluiLike(String letra) throws Exception {
+        int ret = 0;
+        try {
+            String sql = "DELETE FROM atendente WHERE nome like ?";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            st.setString(1,'%'+ letra + '%');
+            ret = st.executeUpdate();
+            st.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return ret;
     } 
 
     // QUESTÃO 07
-    public static List<Fisica> leIdade() throws Exception 
-    {
+    public static List<Fisica> leTodosIdadeBetween(int idade1, int idade2) throws Exception{
         List<Fisica> listFisicas = new ArrayList<>();
-        try 
-        {
-            String sql = "SELECT * FROM Fisica WHERE idade BETWEEN ? AND ?";
+        try {
+            String sql = "SELECT * FROM fisica where idade between ? and ?";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
-            st.setInt(1, 15);
-            st.setInt(2, 30);
+            st.setInt(1, idade1);
+            st.setInt(2, idade2);
             rs = st.executeQuery();
-            
-            while (rs.next())
-            {
-                Fisica fisica = new Fisica();
-                fisica.setCpf(rs.getString("cpf"));
-                fisica.setNome(rs.getString("nome"));
-                fisica.setIdade(rs.getInt("idade"));
-                fisica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
-                listFisicas.add(fisica);
+            while (rs.next()) {
+                Fisica f = new Fisica();
+                f.setCpf(rs.getString("cpf"));
+                f.setNome(rs.getString("nome"));
+                f.setIdade(rs.getInt("idade"));
+                f.setAtendente(AtendenteDAO.leUm(rs.getInt("Atendente_matr")));
+                listFisicas.add(f);
             }
             st.close();
-
-        } 
-        catch (SQLException e) 
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return listFisicas;
     }
     
     // QUESTÃO 08
-    /*
-        Faça uma consulta Seleção com as tabelas Atendente e Física que mostre 
-        matrícula e nome dos atendentes, e seus respectivos clientes pessoa 
-        física com cpf e nome, cujo nome do atendente comece com a letra J e a 
-        idade da pessoa física esteja entre 30 e 40.
-    */
-    public static List<AtendenteComFisica> consultaAtendenteFisica() throws Exception {
-    List<AtendenteComFisica> listAtendentesComFisicas = new ArrayList<>();
-        try 
-        {
-            // Consulta SQL com JOIN entre Atendente e Física
-            String sql = "SELECT a.matr, a.nome AS atendente_nome, f.cpf, f.nome AS fisica_nome, f.idade " +
-                         "FROM Atendente a " + 
-                         "JOIN Fisica f ON a.matr = f.Atendente_matr " +
-                         "WHERE a.nome LIKE 'J%' " +
-                         "AND f.idade BETWEEN 30 AND 40;";
-
+    public static List<Fisica> leTodosInnerJoinLikeBetween(String letra, int idade1, int idade2) throws Exception{
+        List<Fisica> listFisicas = new ArrayList<>();
+        try {
+            String sql = "select  f.cpf, f.nome, a.matr, a.nome from atendente a " +
+                         "inner join fisica f on a.matr = f.atendente_matr " +
+                         "where a.nome like ? and f.idade between ? and ?";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
+            st.setString(1,'%'+ letra +'%');
+            st.setInt(2, idade1);
+            st.setInt(3, idade2);
             rs = st.executeQuery();
 
             while (rs.next()) {
-                AtendenteComFisica atendenteComFisica = new AtendenteComFisica();
-
-                // Preenche os dados do Atendente
-                Atendente atendente = new Atendente();
-                atendente.setMatr(rs.getInt("matr"));  // Usa "matr" conforme a consulta
-                atendente.setNome(rs.getString("atendente_nome"));
-
-                // Preenche os dados da Fisica
-                Fisica fisica = new Fisica();
-                fisica.setCpf(rs.getString("cpf"));
-                fisica.setNome(rs.getString("fisica_nome"));
-                fisica.setIdade(rs.getInt("idade"));
-
-                // Associa o Atendente e a Fisica
-                atendenteComFisica.setAtendente(atendente);
-                atendenteComFisica.setFisica(fisica);
-
-                // Adiciona à lista
-                listAtendentesComFisicas.add(atendenteComFisica);
+                Fisica f = new Fisica();
+                f.setCpf(rs.getString("cpf"));
+                f.setNome(rs.getString("nome"));
+                f.setAtendente(AtendenteDAO.leUm(rs.getInt("matr")));
+                listFisicas.add(f);
             }
-
-            rs.close();
             st.close();
-
-        } 
-        catch (SQLException e) 
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return listAtendentesComFisicas;
+        return listFisicas;
     }
-
     
     // QUESTÃO 09
-    public static List<Juridica> leCnpj() throws Exception {
+    public static List<Juridica> leTodosPorCnpj(String cnpj1, String cnpj2) throws Exception{
         List<Juridica> listJuridicas = new ArrayList<>();
-        try 
-        {
-            String sql = "SELECT * FROM Juridica WHERE cnpj IN ('101010', '303030')";
-
+        try {
+            String sql = "SELECT * FROM JURIDICA where cnpj in(?,?)";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
+            st.setString(1, cnpj1);
+            st.setString(2, cnpj2);
             rs = st.executeQuery();
-
             while (rs.next()) {
                 Juridica juridica = new Juridica();
                 juridica.setCnpj(rs.getString("cnpj"));
@@ -269,86 +201,63 @@ public class ExercicioDAO {
                 juridica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
                 listJuridicas.add(juridica);
             }
-
             st.close();
-        } catch (SQLException e) 
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return listJuridicas;
     }
 
-    
-    
     // QUESTÃO 10
-    public static List<Juridica> leIdadeJuridica() throws Exception {
-        List<Juridica> listJuridicas = new ArrayList<>();
+    public static List<Juridica> leTodosPorCnpjOuIdade(String cnpj, int idade) throws Exception{
+        List<Juridica> listJuridicas = new ArrayList<Juridica>();
         try {
-            String sql = "SELECT * FROM Juridica WHERE cnpj = '404040' OR idade > 5";
-
+            String sql = "SELECT * FROM JURIDICA where cnpj = ? or idade = ?";
             connection = GerenteDeConexao.getConnection();
             st = connection.prepareStatement(sql);
+            st.setString(1, cnpj);
+            st.setInt(2, idade);
             rs = st.executeQuery();
-
+            while (rs.next()) {
+                Juridica juridica = new Juridica();
+                juridica.setCnpj(rs.getString("cnpj"));
+                juridica.setNome(rs.getString("nome"));
+                juridica.setIdade(rs.getInt("idade"));
+                juridica.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
+                listJuridicas.add(juridica);
+            }
+            st.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return listJuridicas;
+    }
+    
+    // QUESTÃO 11
+    public static List<Juridica> leTodosInnerJoinInMaiorIgual(int matr1, int matr2, int idade) throws Exception{
+        List<Juridica> listJuridicas = new ArrayList<>();
+        try {
+            String sql = "select j.cnpj, j.nome, j.idade, a.matr, a.nome from atendente a " +
+                         "inner join juridica j on a.matr = j.Atendente_matr " +
+                         "where a.matr in(?,?) and j.idade >= ? ";
+            connection = GerenteDeConexao.getConnection();
+            st = connection.prepareStatement(sql);
+            st.setInt(1, matr1);
+            st.setInt(2, matr2);
+            st.setInt(3, idade);
+            rs = st.executeQuery();
             while (rs.next()) {
                 Juridica j = new Juridica();
                 j.setCnpj(rs.getString("cnpj"));
                 j.setNome(rs.getString("nome"));
                 j.setIdade(rs.getInt("idade"));
-                j.setAtendente(AtendenteDAO.leUm(rs.getInt("atendente_matr")));
+                j.setAtendente(AtendenteDAO.leUm(rs.getInt("matr")));
                 listJuridicas.add(j);
             }
-
             st.close();
-        } catch (SQLException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return listJuridicas;
-    }
-
-    
-    
-    // QUESTÃO 11
-    public static List<AtendenteComJuridica> consultaAtendenteJuridica() throws Exception {
-        List<AtendenteComJuridica> listAtendentesComJuridicas = new ArrayList<>();
-        try 
-        {
-            // Consulta SQL com INNER JOIN, IN e ">"
-            String sql = "SELECT a.matr, a.nome AS atendente_nome, j.cnpj, j.nome AS juridica_nome, j.idade " +
-                         "FROM Atendente a " + 
-                         "INNER JOIN Juridica j ON a.matr = j.Atendente_matr " +
-                         "WHERE a.matr IN (1, 3) " + 
-                         "AND j.idade = 10";
-
-            connection = GerenteDeConexao.getConnection();
-            st = connection.prepareStatement(sql);
-            rs = st.executeQuery();
-
-            while (rs.next()) 
-            {
-                AtendenteComJuridica atendenteComJuridica = new AtendenteComJuridica();
-
-                Atendente atendente = new Atendente();
-                atendente.setMatr(rs.getInt("matr"));
-                atendente.setNome(rs.getString("atendente_nome"));
-
-                Juridica juridica = new Juridica();
-                juridica.setCnpj(rs.getString("cnpj"));
-                juridica.setNome(rs.getString("juridica_nome"));
-                juridica.setIdade(rs.getInt("idade"));
-
-                atendenteComJuridica.setAtendente(atendente);
-                atendenteComJuridica.setJuridica(juridica);
-
-                listAtendentesComJuridicas.add(atendenteComJuridica);
-            }
-
-            st.close();
-        } 
-        catch (SQLException e) 
-        {
-            System.out.println(e.getMessage());
-        }
-        return listAtendentesComJuridicas;
     }
 }

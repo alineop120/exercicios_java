@@ -11,7 +11,7 @@ public class TestaQ005 {
     */
 
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.excluiMatri());
+        System.out.println(ExercicioDAO.excluiMatr(2, 8));
     }
     
 }

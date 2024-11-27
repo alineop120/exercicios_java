@@ -11,7 +11,7 @@ public class TestaQ006 {
     */
 
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.excluiNome());
+        System.out.println(ExercicioDAO.excluiLike("M"));
     }
     
 }

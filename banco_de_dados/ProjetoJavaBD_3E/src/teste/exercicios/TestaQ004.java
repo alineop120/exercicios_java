@@ -9,8 +9,8 @@ public class TestaQ004 {
     */
 
     public static void main(String[] args) throws Exception {
-        // atualizaMatr_e_Nome(int matrAntiga, int novaMatr, String novoNome)
-        System.out.println(ExercicioDAO.atualizaMatrNome(33, 3, "Paula"));
+        // alteraMatrNome(int novaMatr, String novoNome, int matr)
+        //System.out.println(ExercicioDAO.alteraMatrNome(int novaMatr,String novoNome, int matr));
     }
     
 }

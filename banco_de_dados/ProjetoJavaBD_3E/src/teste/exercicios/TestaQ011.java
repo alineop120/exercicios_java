@@ -14,7 +14,8 @@ public class TestaQ011 {
     */
     
     public static void main(String[] args) throws Exception {
-        System.out.println(ExercicioDAO.consultaAtendenteJuridica());
+        //leTodosInnerJoinInMaiorIgual(int matr1, int matr2, int idade)
+        System.out.println(ExercicioDAO.leTodosInnerJoinInMaiorIgual(1, 3, 10));
     }
     
 }
